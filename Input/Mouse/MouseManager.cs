@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Saga.Util;
-using Saga.Util.Core;
 using Saga.Util.Event;
 using System;
 
