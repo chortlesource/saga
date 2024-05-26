@@ -11,7 +11,7 @@ namespace Saga.Util.Event
     /// <typeparam name="T">Must be either an <c>int</c> or <c>enum</c></typeparam>
     internal class EventManager<T> : BaseManager where T : struct, IComparable, IFormattable
     {
-        private Dictionary<T, List<Action>> _listeners;
+        private readonly Dictionary<T, List<Action>> _listeners;
 
         public EventManager()
         {
@@ -25,8 +25,7 @@ namespace Saga.Util.Event
         /// <param name="method">The method to be removed</param>
         public void AddEventListener(T eventType, Action method)
         {
-            List<Action> list = null;
-            if (!_listeners.TryGetValue(eventType, out list))
+            if (!_listeners.TryGetValue(eventType, out List<Action> list))
             {
                 list = new List<Action>();
                 _listeners.Add(eventType, list);
@@ -54,8 +53,7 @@ namespace Saga.Util.Event
         /// <param name="eventType">The type of event</param>
         public void Emit(T eventType)
         {
-            List<Action> list = null;
-            if (_listeners.TryGetValue(eventType, out list))
+            if (_listeners.TryGetValue(eventType, out List<Action> list))
             {
                 for (var i = list.Count - 1; i >= 0; i--)
                     list[i]();
@@ -71,7 +69,7 @@ namespace Saga.Util.Event
     /// <typeparam name="T">Must be either an <c>int</c> or <c>enum</c></typeparam>
     internal class EventManager<T, U> : BaseManager where T : struct, IComparable, IFormattable
     {
-        private Dictionary<T, List<Action<U>>> _listeners;
+        private readonly Dictionary<T, List<Action<U>>> _listeners;
 
         public EventManager()
         {
@@ -85,8 +83,7 @@ namespace Saga.Util.Event
         /// <param name="method">The method to be removed</param>
         public void AddEventListener(T eventType, Action<U> method)
         {
-            List<Action<U>> list = null;
-            if (!_listeners.TryGetValue(eventType, out list))
+            if (!_listeners.TryGetValue(eventType, out List<Action<U>> list))
             {
                 list = new List<Action<U>>();
                 _listeners.Add(eventType, list);
@@ -115,8 +112,7 @@ namespace Saga.Util.Event
         /// <param name="data">Data to be included in transmission</param>
         public void Emit(T eventType, U data)
         {
-            List<Action<U>> list = null;
-            if (_listeners.TryGetValue(eventType, out list))
+            if (_listeners.TryGetValue(eventType, out List<Action<U>> list))
             {
                 for (var i = list.Count - 1; i >= 0; i--)
                     list[i](data);

@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Saga.Input;
 using Saga.Util.Core;
 using Saga.Util.Event;
 using Saga.Util.Timer;
@@ -36,12 +37,22 @@ namespace Saga
         /// <summary>
         /// Manages Timer creation, update and removal
         /// </summary>
-        internal TimerManager timerManager = new TimerManager();
+        internal TimerManager TimerManager = new TimerManager();
 
         /// <summary>
         /// Manages CoreEvents emitted by the application
         /// </summary>
         internal EventManager<CoreEvent> EventManager = new EventManager<CoreEvent>();
+
+        /// <summary>
+        /// Manages input events for the application
+        /// </summary>
+        internal InputManager InputManager = new InputManager();
+
+        public Core() 
+        {
+            _instance = this;
+        }
 
         protected override void Initialize()
         {

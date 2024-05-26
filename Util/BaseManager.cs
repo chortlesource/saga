@@ -7,12 +7,12 @@
         /// <summary>
         /// Method is called when BaseManager is Enabled.
         /// </summary>
-        public virtual void onEnabled() { }
+        public virtual void OnEnabled() { }
 
         /// <summary>
         /// Method is called when BaseManager is Disabled.
         /// </summary>
-        public virtual void onDisabled() { }
+        public virtual void OnDisabled() { }
 
         /// <summary>
         /// Called every frame to update the BaseManager.
@@ -32,9 +32,9 @@
                     _enabled = value;
 
                     if (_enabled)
-                        onEnabled();
+                        OnEnabled();
                     else
-                        onDisabled();
+                        OnDisabled();
                 }
             }
         }

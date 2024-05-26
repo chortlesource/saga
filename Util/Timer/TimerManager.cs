@@ -8,7 +8,7 @@ namespace Saga.Util.Timer
     /// </summary>
     internal class TimerManager : BaseManager
     {
-        private List<Timer> _timers = new List<Timer>();
+        private readonly List<Timer> _timers = new List<Timer>();
 
         public override void Update()
         {
