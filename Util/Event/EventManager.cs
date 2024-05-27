@@ -34,7 +34,7 @@ namespace Saga.Util.Event
             if (!list.Contains(method))
                 list.Add(method);
             else
-                Terminal.Warn("Attempted to add duplicate observer");
+                Term.Debug("Attempted to add duplicate observer");
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace Saga.Util.Event
             if (!list.Contains(method))
                 list.Add(method);
             else
-                Terminal.Warn("Attempted to add duplicate observer");
+                Term.Debug("Attempted to add duplicate observer");
         }
 
         /// <summary>

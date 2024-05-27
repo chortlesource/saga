@@ -17,6 +17,7 @@ namespace Saga.Input.Keyboard
 
         public KeyboardManager()
         {
+            _eventManager      = new EventManager<KeyboardEvent, Keys>();
             _prevKeyboardState = Microsoft.Xna.Framework.Input.Keyboard.GetState();
             _thisKeyboardState = _prevKeyboardState;
         }

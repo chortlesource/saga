@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Saga.Assets;
 using Saga.Input;
 using Saga.Util.Core;
 using Saga.Util.Event;
@@ -32,30 +33,39 @@ namespace Saga
         /// <summary>
         /// Configures default behaviour for Saga.Core
         /// </summary>
-        internal CoreConfig Config = new CoreConfig();
+        internal CoreConfig Config;
 
         /// <summary>
         /// Manages Timer creation, update and removal
         /// </summary>
-        internal TimerManager TimerManager = new TimerManager();
+        internal TimerManager TimerManager;
 
         /// <summary>
         /// Manages CoreEvents emitted by the application
         /// </summary>
-        internal EventManager<CoreEvent> EventManager = new EventManager<CoreEvent>();
+        internal EventManager<CoreEvent> EventManager;
 
         /// <summary>
         /// Manages input events for the application
         /// </summary>
-        internal InputManager InputManager = new InputManager();
+        internal InputManager InputManager;
+
+        public AssetManager AssetManager;
 
         public Core() 
         {
-            _instance = this;
+            _instance    = this;
+            Config       = new CoreConfig();
+            TimerManager = new TimerManager();
+            EventManager = new EventManager<CoreEvent>();
+            InputManager = new InputManager();
+            AssetManager = new AssetManager();
         }
 
         protected override void Initialize()
         {
+            GraphicsDevice = base.GraphicsDevice;
+
             base.Initialize();
         }
 
