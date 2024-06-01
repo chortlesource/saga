@@ -70,18 +70,6 @@ namespace Saga.Assets
                 }
             }
         }
-
-        /// <summary>
-        /// Prints a list of currently loaded assets to the terminal
-        /// </summary>
-        public void PrintLoadedAssets()
-        {
-            var builder = new StringBuilder();
-            foreach (var asset in LoadedAssets.Keys)
-                builder.AppendFormat("{0}: ({1})\n", asset, LoadedAssets[asset].GetType().Name);
-
-            Term.Debug(builder.ToString());
-        }
     }
 
 }

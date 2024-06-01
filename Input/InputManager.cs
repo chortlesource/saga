@@ -25,15 +25,18 @@ namespace Saga.Input
         public override void Update()
         {
             _mouseManager.Update();
+            _keyboardManager.Update();
         }
 
         public override void OnEnabled()
         {
             _mouseManager.Enabled = true;
+            _keyboardManager.Enabled = true;
         }
 
         public override void OnDisabled() 
         {
+            _keyboardManager.Enabled = false;
             _mouseManager.Enabled = false;
         }
     }
